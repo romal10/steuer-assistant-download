@@ -10,35 +10,38 @@ A **local-first** assistant for your German tax documents. It sorts your receipt
 
 ## Screenshots
 
-*Demo data only (fictional household "Anna & Ben"). Your real documents never leave your computer.*
+*Fictional demo data only. Your real documents never leave your computer.*
 
-| Overview | Savings guide |
+| Guided start | Work, home office, commute |
 |---|---|
-| ![Overview](screenshots/01-overview.jpg) | ![Savings](screenshots/02-savings.jpg) |
-| **Family & income** | **Chat assistant** |
-| ![Family](screenshots/03-family.jpg) | ![Chat](screenshots/04-chat.jpg) |
-
-![Report and Finanzamt](screenshots/05-report.png)
+| ![Start](screenshots/01-start.jpg) | ![Work](screenshots/02-work.jpg) |
+| **What is still missing** | **Estimated refund** |
+| ![Documents](screenshots/03-documents.jpg) | ![Result](screenshots/04-result.jpg) |
 
 ## How it works
 
-1. **One folder.** You choose a tax folder on your computer. Everything the app keeps lives there.
-2. **Drop documents in.** Payslips, receipts, invoices and letters go into the *Inbox* folder (or onto the page, or a phone photo). The app reads them on your computer (OCR plus a local AI model) and files them into a numbered archive per tax year.
-3. **It asks only when unsure.** Unknown senders are learned from your answers; open questions appear on the Overview.
-4. **Savings guide.** For each possible deduction you get a suggested amount for your Bundesland. You accept it, enter your own, or mark it not needed.
-5. **Report.** A printable report for your Steuerberater and step-by-step help for ELSTER. You submit the return yourself.
+1. **Pick the tax year** – with the filing deadline.
+2. **About you** – drop a Finanzamt letter; names, Steuernummer and tax office are read automatically (on your computer).
+3. **Work** – job, on site / hybrid / home office, home and work address. The commute distance and days are calculated (optional online distance lookup only after you agree).
+4. **Income and family** – salary, freelance income, children, church tax.
+5. **Documents** – put everything into one folder. It is sorted, costs and income are separated, and you see what is missing.
+6. **Result** – your estimated refund with a step-by-step calculation, a report for your Steuerberater and an ELSTER guide.
 
-Privacy: the app listens on `127.0.0.1` only, has no telemetry and never logs in to ELSTER. Optional extras (off by default): other devices on your Wi-Fi with a PIN, and an encrypted share link for your Steuerberater.
+Nothing to provide? One click calculates every standard deduction automatically. Nothing is invented – more real receipts can raise the estimate.
+
+Privacy: the app listens on `127.0.0.1` only, has no telemetry and never logs in to ELSTER. Estimates work for tax years 2024, 2025 and 2026.
 
 ## Download
 
-Go to **[Releases → latest](../../releases/latest)** and pick your system:
+**Website:** https://romal10.github.io/steuer-assistant-download/
+
+Pick your system (direct download):
 
 | System | File |
 |---|---|
-| Windows 10/11 | `Steuer-Assistant-Windows.zip` |
-| Mac with Apple chip (M1–M4) | `Steuer-Assistant-Mac-AppleSilicon.zip` |
-| Mac with Intel chip | `Steuer-Assistant-Mac-Intel.zip` |
+| Windows 10/11 | [Steuer-Assistant-Windows.zip](https://github.com/romal10/steuer-assistant-download/releases/latest/download/Steuer-Assistant-Windows.zip) |
+| Mac with Apple chip (M1–M4) | [Steuer-Assistant-Mac-AppleSilicon.zip](https://github.com/romal10/steuer-assistant-download/releases/latest/download/Steuer-Assistant-Mac-AppleSilicon.zip) |
+| Mac with Intel chip | [Steuer-Assistant-Mac-Intel.zip](https://github.com/romal10/steuer-assistant-download/releases/latest/download/Steuer-Assistant-Mac-Intel.zip) |
 
 ## Installation (first start) – Anleitung
 

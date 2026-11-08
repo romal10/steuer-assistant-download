@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steuer-Assistant – your tax return, step by step</title>
+<meta name="description" content="Free, private desktop app that guides you step by step through your German tax return (Steuererklärung). Runs on your computer. Nothing is uploaded.">
+<meta name="theme-color" content="#123d28">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23123d28'/%3E%3Ctext x='32' y='43' font-size='34' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3E€%3C/text%3E%3C/svg%3E">
+<style>
+:root{--g1:#123d28;--g2:#1f6b46;--g3:#4aa070;--g4:#e3f1e8;--ink:#13201a;--mut:#56685e;--line:#e2e9e3;--gold:#f2b544;--gold2:#fff4d9;--bg:#f7f9f5;--shadow:0 14px 40px rgba(18,61,40,.12)}
+@media(prefers-color-scheme:dark){:root{--ink:#e9f1ec;--mut:#a3b5aa;--line:#254033;--bg:#0c1712;--g4:#173326;--gold2:#2c2412;--shadow:0 14px 40px rgba(0,0,0,.4)}body{background:var(--bg)}.card,.dl,.faq details,.shot figure{background:#13261c!important}.btn.alt{background:#173326;color:#e9f1ec}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--g2)}.wrap{max-width:1080px;margin:auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:62px}nav b{font-size:18px;letter-spacing:-.01em;margin-right:auto;display:flex;gap:10px;align-items:center}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--g2),var(--g1));color:#fff;display:grid;place-items:center;font-weight:800}
+nav a.l{text-decoration:none;color:var(--mut);font-weight:600;font-size:14px}nav a.l:hover{color:var(--g2)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px}.lang button{border:0;background:none;padding:5px 12px;border-radius:99px;font:inherit;font-weight:700;font-size:12px;color:var(--mut);cursor:pointer}.lang button.on{background:var(--g1);color:#fff}
+.hero{background:radial-gradient(900px 420px at 85% -10%,rgba(74,160,112,.35),transparent 60%),linear-gradient(135deg,#0f3322,#1f6b46 75%,#2a8a5b);color:#fff;padding:78px 0 120px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.pill{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);padding:6px 14px;border-radius:99px;font-size:13px;font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-.03em;margin:0 0 16px}h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{font-size:19px;opacity:.92;max-width:520px;margin:0 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;gap:8px;align-items:center;padding:15px 24px;border-radius:14px;font-weight:800;text-decoration:none;font-size:16px;transition:.15s;border:0;cursor:pointer;font-family:inherit}
+.btn.main{background:var(--gold);color:#2a1f00;box-shadow:0 8px 24px rgba(242,181,68,.4)}.btn.main:hover{transform:translateY(-2px)}
+.btn.alt{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3)}.btn.alt:hover{background:rgba(255,255,255,.22)}
+.hero small{display:block;margin-top:14px;opacity:.75}
+.hshot{border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,.45);border:6px solid rgba(255,255,255,.18);width:100%;transform:rotate(1.2deg)}
+.trust{margin-top:-60px;position:relative;z-index:2}.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.card .ic{width:44px;height:44px;border-radius:13px;background:var(--g4);display:grid;place-items:center;font-size:22px;margin-bottom:10px}.card h3{margin:0 0 4px;font-size:17px}.card p{margin:0;color:var(--mut);font-size:14.5px}
+section{padding:78px 0}section h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.02em;margin:0 0 10px;line-height:1.1}section .sub{color:var(--mut);max-width:620px;font-size:18px;margin:0 0 38px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{position:relative;padding-top:30px}.step .n{position:absolute;top:-16px;left:20px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--g2),var(--g1));color:#fff;font-weight:800;display:grid;place-items:center;box-shadow:0 6px 14px rgba(18,61,40,.3)}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.shot figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}.shot img{width:100%;display:block}.shot figcaption{padding:14px 18px;font-weight:700}.shot figcaption span{display:block;font-weight:500;color:var(--mut);font-size:14px}
+.alt-bg{background:linear-gradient(180deg,transparent,var(--g4) 14%,var(--g4) 86%,transparent)}
+.dls{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.dl{background:#fff;border:2px solid var(--line);border-radius:20px;padding:24px;text-align:center;transition:.15s}.dl.rec{border-color:var(--g2);box-shadow:var(--shadow)}.dl .os{font-size:38px}.dl h3{margin:6px 0 2px}.dl p{color:var(--mut);font-size:14px;margin:0 0 16px}.dl .btn{background:linear-gradient(180deg,var(--g2),var(--g1));color:#fff;width:100%;justify-content:center}
+.how{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.how ol{margin:8px 0 0;padding-left:20px}.how li{margin:5px 0}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:10px 0}.faq summary{font-weight:700;cursor:pointer}.faq p{color:var(--mut);margin:10px 0 0}
+.note{background:var(--gold2);border:1px solid #f0dca4;border-radius:16px;padding:16px 20px;color:#5b4a1e;margin-top:26px;font-size:15px}
+footer{padding:40px 0 60px;color:var(--mut);font-size:14px;text-align:center;border-top:1px solid var(--line)}
+.de{display:none}body.de-on .de{display:revert}body.de-on .en{display:none}
+@media(max-width:900px){.hero .wrap,.steps,.dls,.how{grid-template-columns:1fr}.trust .wrap{grid-template-columns:1fr 1fr}.shots{grid-template-columns:1fr}.hshot{transform:none}nav a.l{display:none}}
+@media(max-width:520px){.trust .wrap{grid-template-columns:1fr}.hero{padding-top:50px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b><span class="logo">€</span>Steuer-Assistant</b><a class="l" href="#how"><span class="en">How it works</span><span class="de">So funktioniert's</span></a><a class="l" href="#screens"><span class="en">Screenshots</span><span class="de">Bilder</span></a><a class="l" href="#download"><span class="en">Download</span><span class="de">Download</span></a><div class="lang"><button id="bEn" class="on">EN</button><button id="bDe">DE</button></div></div></nav>
+
+<header class="hero"><div class="wrap">
+ <div>
+  <span class="pill"><span class="en">Free · Private · Runs on your computer</span><span class="de">Kostenlos · Privat · Läuft auf Ihrem Computer</span></span>
+  <h1><span class="en">Your tax return, <em>step by step.</em></span><span class="de">Ihre Steuererklärung, <em>Schritt für Schritt.</em></span></h1>
+  <p class="lead"><span class="en">Answer a few simple questions, drop your documents into one folder, and get your estimated refund. No account, no upload, no ELSTER login.</span><span class="de">Beantworten Sie ein paar einfache Fragen, legen Sie Ihre Unterlagen in einen Ordner und erhalten Sie Ihre voraussichtliche Erstattung. Ohne Konto, ohne Upload, ohne ELSTER-Zugang.</span></p>
+  <div class="btns"><a class="btn main" id="heroDl" href="#download"><span class="en">⬇ Download for free</span><span class="de">⬇ Kostenlos herunterladen</span></a><a class="btn alt" href="#how"><span class="en">See how it works</span><span class="de">So funktioniert's</span></a></div>
+  <small id="osHint"></small>
+ </div>
+ <img class="hshot" src="screenshots/04-result.jpg" alt="Estimated refund screen of the Steuer-Assistant (demo data)">
+</div></header>
+
+<div class="trust"><div class="wrap">
+ <div class="card"><div class="ic">🔒</div><h3><span class="en">100 % local</span><span class="de">100 % lokal</span></h3><p><span class="en">Your documents never leave your computer.</span><span class="de">Ihre Unterlagen verlassen Ihren Computer nie.</span></p></div>
+ <div class="card"><div class="ic">🧭</div><h3><span class="en">Guided</span><span class="de">Geführt</span></h3><p><span class="en">Six short steps. No tax knowledge needed.</span><span class="de">Sechs kurze Schritte. Kein Steuerwissen nötig.</span></p></div>
+ <div class="card"><div class="ic">⚙️</div><h3><span class="en">Automatic</span><span class="de">Automatisch</span></h3><p><span class="en">Flat rates, commute and home office are calculated for you.</span><span class="de">Pauschalen, Pendeln und Homeoffice werden berechnet.</span></p></div>
+ <div class="card"><div class="ic">🌍</div><h3>5 <span class="en">languages</span><span class="de">Sprachen</span></h3><p>Deutsch · English · Polski · العربية · فارسی</p></div>
+</div></div>
+
+<section id="how"><div class="wrap">
+ <h2><span class="en">From shoebox to result in six steps</span><span class="de">Vom Schuhkarton zum Ergebnis in sechs Schritten</span></h2>
+ <p class="sub"><span class="en">The assistant asks, you answer. Whatever you do not know can be added later.</span><span class="de">Der Assistent fragt, Sie antworten. Was Sie nicht wissen, ergänzen Sie später.</span></p>
+ <div class="steps">
+  <div class="card step"><span class="n">1</span><h3><span class="en">Pick the year</span><span class="de">Jahr wählen</span></h3><p><span class="en">Choose which tax year to file – and see the deadline.</span><span class="de">Wählen Sie das Steuerjahr – inklusive Abgabefrist.</span></p></div>
+  <div class="card step"><span class="n">2</span><h3><span class="en">About you</span><span class="de">Über Sie</span></h3><p><span class="en">Drop a letter from your Finanzamt: names, Steuernummer and tax office are read automatically.</span><span class="de">Legen Sie einen Brief vom Finanzamt ab: Namen, Steuernummer und Finanzamt werden automatisch gelesen.</span></p></div>
+  <div class="card step"><span class="n">3</span><h3><span class="en">Work</span><span class="de">Arbeit</span></h3><p><span class="en">Job, on-site or home office, home and work address – the commute distance and days are calculated.</span><span class="de">Beruf, vor Ort oder Homeoffice, Wohn- und Arbeitsadresse – Entfernung und Tage werden berechnet.</span></p></div>
+  <div class="card step"><span class="n">4</span><h3><span class="en">Income &amp; family</span><span class="de">Einkommen &amp; Familie</span></h3><p><span class="en">Salary, freelance income, children, church tax.</span><span class="de">Gehalt, Selbständigkeit, Kinder, Kirchensteuer.</span></p></div>
+  <div class="card step"><span class="n">5</span><h3><span class="en">Documents</span><span class="de">Unterlagen</span></h3><p><span class="en">Put everything into one folder. It is sorted, costs and income are separated, and you see what is still missing.</span><span class="de">Alles in einen Ordner. Es wird sortiert, Kosten und Einnahmen getrennt, und Sie sehen, was noch fehlt.</span></p></div>
+  <div class="card step"><span class="n">6</span><h3><span class="en">Result</span><span class="de">Ergebnis</span></h3><p><span class="en">Your estimated refund with a clear calculation, a printable report for your Steuerberater and an ELSTER guide.</span><span class="de">Ihre voraussichtliche Erstattung mit nachvollziehbarer Rechnung, ein Bericht für Ihren Steuerberater und eine ELSTER-Hilfe.</span></p></div>
+ </div>
+ <div class="note"><span class="en"><b>Nothing to provide?</b> That is fine – one click calculates all standard deductions automatically. The more real receipts you add, the higher the estimate can get; nothing is invented.</span><span class="de"><b>Nichts zur Hand?</b> Kein Problem – ein Klick berechnet alle Standard-Abzüge automatisch. Je mehr echte Belege, desto höher kann die Schätzung werden; nichts wird erfunden.</span></div>
+</div></section>
+
+<section id="screens" class="alt-bg"><div class="wrap">
+ <h2><span class="en">A look inside</span><span class="de">Ein Blick hinein</span></h2>
+ <p class="sub"><span class="en">Screenshots with fictional demo data.</span><span class="de">Screenshots mit fiktiven Demo-Daten.</span></p>
+ <div class="shots shot">
+  <figure><img loading="lazy" src="screenshots/01-start.jpg" alt="Start page with the six steps"><figcaption><span class="en">The guided start</span><span class="de">Der geführte Start</span><span class="en">Six steps with progress – pick the year first.</span><span class="de">Sechs Schritte mit Fortschritt – zuerst das Jahr wählen.</span></figcaption></figure>
+  <figure><img loading="lazy" src="screenshots/02-work.jpg" alt="Work step: occupation, home office and commute"><figcaption><span class="en">Work, home office and commute</span><span class="de">Arbeit, Homeoffice und Pendeln</span><span class="en">Addresses and distance turn into days and euros.</span><span class="de">Adressen und Entfernung werden zu Tagen und Euro.</span></figcaption></figure>
+  <figure><img loading="lazy" src="screenshots/03-documents.jpg" alt="Documents checklist"><figcaption><span class="en">What is still missing</span><span class="de">Was noch fehlt</span><span class="en">A clear checklist, explained in plain language.</span><span class="de">Eine klare Checkliste in einfacher Sprache.</span></figcaption></figure>
+  <figure><img loading="lazy" src="screenshots/04-result.jpg" alt="Estimated refund"><figcaption><span class="en">Your estimated refund</span><span class="de">Ihre voraussichtliche Erstattung</span><span class="en">Every figure is explained step by step.</span><span class="de">Jede Zahl wird Schritt für Schritt erklärt.</span></figcaption></figure>
+ </div>
+</div></section>
+
+<section id="download"><div class="wrap">
+ <h2><span class="en">Download</span><span class="de">Herunterladen</span></h2>
+ <p class="sub"><span class="en">Free. Pick your system – no installer, no account.</span><span class="de">Kostenlos. Wählen Sie Ihr System – ohne Installer, ohne Konto.</span></p>
+ <div class="dls">
+  <div class="dl" data-os="win"><div class="os">🪟</div><h3>Windows</h3><p>Windows 10 / 11</p><a class="btn" href="https://github.com/romal10/steuer-assistant-download/releases/latest/download/Steuer-Assistant-Windows.zip"><span class="en">Download .zip</span><span class="de">.zip laden</span></a></div>
+  <div class="dl" data-os="mac-arm"><div class="os"></div><h3>Mac · Apple Silicon</h3><p>M1 / M2 / M3 / M4</p><a class="btn" href="https://github.com/romal10/steuer-assistant-download/releases/latest/download/Steuer-Assistant-Mac-AppleSilicon.zip"><span class="en">Download .zip</span><span class="de">.zip laden</span></a></div>
+  <div class="dl" data-os="mac-intel"><div class="os"></div><h3>Mac · Intel</h3><p>Intel-Chip</p><a class="btn" href="https://github.com/romal10/steuer-assistant-download/releases/latest/download/Steuer-Assistant-Mac-Intel.zip"><span class="en">Download .zip</span><span class="de">.zip laden</span></a></div>
+ </div>
+ <div class="how">
+  <div class="card"><h3>Windows</h3><ol><li><span class="en">Right-click the ZIP ▸ Extract all.</span><span class="de">ZIP rechtsklicken ▸ Alle extrahieren.</span></li><li><span class="en">Open the folder, double-click <b>Steuer-Assistant.exe</b>.</span><span class="de">Ordner öffnen, <b>Steuer-Assistant.exe</b> doppelklicken.</span></li><li><span class="en">If Windows warns: <b>More info ▸ Run anyway</b> (the app is not code-signed yet).</span><span class="de">Bei Warnung: <b>Weitere Informationen ▸ Trotzdem ausführen</b> (App noch nicht signiert).</span></li><li><span class="en">Keep the black window open. Your browser opens the app.</span><span class="de">Schwarzes Fenster offen lassen. Der Browser öffnet die App.</span></li></ol></div>
+  <div class="card"><h3>Mac</h3><ol><li><span class="en">Double-click the ZIP, move the folder to Documents.</span><span class="de">ZIP doppelklicken, Ordner nach Dokumente verschieben.</span></li><li><span class="en">Open Terminal, type <code>xattr -dr com.apple.quarantine </code> (with a space), drag the folder in, press Return.</span><span class="de">Terminal öffnen, <code>xattr -dr com.apple.quarantine </code> tippen (mit Leerzeichen), Ordner hineinziehen, Return.</span></li><li><span class="en">Double-click <b>Steuer-Assistant</b> inside the folder.</span><span class="de"><b>Steuer-Assistant</b> im Ordner doppelklicken.</span></li><li><span class="en">Keep the window open. The app opens in your browser.</span><span class="de">Fenster offen lassen. Die App öffnet sich im Browser.</span></li></ol></div>
+ </div>
+ <p style="margin-top:18px"><span class="en">All files and older versions: </span><span class="de">Alle Dateien und ältere Versionen: </span><a href="https://github.com/romal10/steuer-assistant-download/releases">Releases</a></p>
+</div></section>
+
+<section class="alt-bg"><div class="wrap faq">
+ <h2><span class="en">Questions</span><span class="de">Fragen</span></h2><p class="sub"></p>
+ <details><summary><span class="en">Is my data safe?</span><span class="de">Sind meine Daten sicher?</span></summary><p><span class="en">The app runs only on your computer and listens on 127.0.0.1. Documents are read locally. There is no telemetry and no cloud upload. The only optional online feature is measuring your commute distance – and only after you tick a consent box.</span><span class="de">Die App läuft nur auf Ihrem Computer (127.0.0.1). Unterlagen werden lokal gelesen. Keine Telemetrie, kein Cloud-Upload. Einzige optionale Online-Funktion: die Messung der Pendelstrecke – nur nach Ihrer Einwilligung.</span></p></details>
+ <details><summary><span class="en">Does it submit my return to the Finanzamt?</span><span class="de">Reicht es meine Erklärung beim Finanzamt ein?</span></summary><p><span class="en">No. It never logs in to ELSTER and never stores a certificate. It prepares everything and guides you; you (or your Steuerberater) submit.</span><span class="de">Nein. Es meldet sich nie bei ELSTER an und speichert kein Zertifikat. Es bereitet alles vor und führt Sie; Sie (oder Ihr Steuerberater) reichen ein.</span></p></details>
+ <details><summary><span class="en">Will I get a refund?</span><span class="de">Bekomme ich eine Erstattung?</span></summary><p><span class="en">Many employees do – especially with commuting, home office and work costs above the flat rate – but it depends on your real situation and the tax already withheld. The app shows an honest estimate and what could still raise it.</span><span class="de">Viele Arbeitnehmer schon – besonders mit Pendeln, Homeoffice und Werbungskosten über der Pauschale –, es hängt aber von Ihrer tatsächlichen Situation und der bereits einbehaltenen Steuer ab. Die App zeigt eine ehrliche Schätzung und was sie noch erhöhen kann.</span></p></details>
+ <details><summary><span class="en">Which tax years are supported?</span><span class="de">Welche Steuerjahre werden unterstützt?</span></summary><p><span class="en">The estimate works for 2024, 2025 and 2026.</span><span class="de">Die Berechnung funktioniert für 2024, 2025 und 2026.</span></p></details>
+ <div class="note"><span class="en">The figures are an indicative estimate, not tax advice or a tax assessment. Only the Finanzamt decides. The program is provided as-is under the MIT licence; the source code is not published.</span><span class="de">Die Zahlen sind eine unverbindliche Schätzung, keine Steuerberatung und kein Steuerbescheid. Entscheidend ist allein das Finanzamt. Das Programm wird ohne Gewähr unter der MIT-Lizenz bereitgestellt; der Quellcode ist nicht veröffentlicht.</span></div>
+</div></section>
+<footer><div class="wrap">© Steuer-Assistant · <a href="LICENSE">MIT</a> · <a href="https://github.com/romal10/steuer-assistant-download/releases">Releases</a></div></footer>
+<script>
+const $=s=>document.querySelector(s);
+function lang(d){document.body.classList.toggle('de-on',d);document.documentElement.lang=d?'de':'en';$('#bDe').classList.toggle('on',d);$('#bEn').classList.toggle('on',!d);try{localStorage.sl=d?'de':'en'}catch(e){}}
+$('#bEn').onclick=()=>lang(false);$('#bDe').onclick=()=>lang(true);
+let l='';try{l=localStorage.sl||''}catch(e){}lang(l?l==='de':/^de/i.test(navigator.language));
+const ua=navigator.userAgent,p=navigator.platform||'';let os=/Win/i.test(p)?'win':/Mac/i.test(p)?'mac':'';
+if(os){const el=document.querySelector('[data-os="'+os+'"]');if(el)el.classList.add('rec');
+ const h=$('#heroDl');if(os==='win')h.href=el.querySelector('a').href;
+ $('#osHint').textContent=os==='win'?'Windows 10/11':'macOS – choose Apple Silicon or Intel below'}
+</script>
+</body></html>
