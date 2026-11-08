@@ -8,6 +8,28 @@ A **local-first** assistant for your German tax documents. It sorts your receipt
 
 > The figures are an indicative estimate, not tax advice or a tax assessment.
 
+## Screenshots
+
+*Demo data only (fictional household "Anna & Ben"). Your real documents never leave your computer.*
+
+| Overview | Savings guide |
+|---|---|
+| ![Overview](screenshots/01-overview.jpg) | ![Savings](screenshots/02-savings.jpg) |
+| **Family & income** | **Chat assistant** |
+| ![Family](screenshots/03-family.jpg) | ![Chat](screenshots/04-chat.jpg) |
+
+![Report and Finanzamt](screenshots/05-report.png)
+
+## How it works
+
+1. **One folder.** You choose a tax folder on your computer. Everything the app keeps lives there.
+2. **Drop documents in.** Payslips, receipts, invoices and letters go into the *Inbox* folder (or onto the page, or a phone photo). The app reads them on your computer (OCR plus a local AI model) and files them into a numbered archive per tax year.
+3. **It asks only when unsure.** Unknown senders are learned from your answers; open questions appear on the Overview.
+4. **Savings guide.** For each possible deduction you get a suggested amount for your Bundesland. You accept it, enter your own, or mark it not needed.
+5. **Report.** A printable report for your Steuerberater and step-by-step help for ELSTER. You submit the return yourself.
+
+Privacy: the app listens on `127.0.0.1` only, has no telemetry and never logs in to ELSTER. Optional extras (off by default): other devices on your Wi-Fi with a PIN, and an encrypted share link for your Steuerberater.
+
 ## Download
 
 Go to **[Releases → latest](../../releases/latest)** and pick your system:
