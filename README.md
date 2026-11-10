@@ -29,7 +29,7 @@ A **local-first** assistant for your German tax documents. It sorts your receipt
 
 Nothing to provide? One click calculates every standard deduction automatically. Nothing is invented – more real receipts can raise the estimate.
 
-Privacy: the app listens on `127.0.0.1` only, has no telemetry and never logs in to ELSTER. Estimates work for tax years 2024, 2025 and 2026.
+Privacy: the app listens on `127.0.0.1` only, has no telemetry and never logs in to ELSTER. Tax years 2025 and later (estimates for 2025 and 2026 so far).
 
 ## Download
 
@@ -56,6 +56,9 @@ Pick your system (direct download):
 2. Open **Terminal**, type `xattr -dr com.apple.quarantine ` (with a space at the end), drag the folder into the window, press **Return**. This removes the "unidentified developer" block (the app is not code-signed yet).
 3. Double-click **`Steuer-Assistant`** inside the folder (or drag it into Terminal and press Return).
 4. Keep the window open. Your browser opens at `http://127.0.0.1:8766`.
+
+### Local AI (free, works without internet)
+The unzipped folder contains **`KI-Einrichtung-Setup-AI`**: double-click `Setup-AI.bat` (Windows) or `Setup-AI.command` (Mac). After you confirm, it installs Ollama and the model on your computer – the same button exists inside the app. **No internet?** Run `Make-Offline-Pack` on any computer with internet, copy the `offline-pack` folder next to the setup script, then run the setup. Other AI: Settings ▸ AI engine (LM Studio/Jan, or your own API key – only with your consent). Optional cloud drive: choose your Google Drive / OneDrive / iCloud / Dropbox folder in setup.
 
 ### First-run setup in the app
 1. **Click "Get started"** – choose where your tax folder is created (default: *Documents ▸ Steuerverwaltung*).
